@@ -1,6 +1,5 @@
 import motor.motor_asyncio as motor
 
-url = "mongodb://localhost:27017/shopdb"
 
-client = motor.AsyncIOMotorClient(url)
-db = client.products
+client = motor.AsyncIOMotorClient("mongodb://localhost:27017")
+db = client.shopdb
