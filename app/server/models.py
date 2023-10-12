@@ -3,7 +3,6 @@ from typing import Optional
 
 
 class ProductSchema(BaseModel):
-    product_id: str = Field(...)
     name: str = Field(...)
     color: str = Field(...)
     weight: float = Field(gt=0)
@@ -12,7 +11,6 @@ class ProductSchema(BaseModel):
     class Config:
         schema_example = {
             "example": {
-                "product_id": "Random id",
                 "name": "Random product",
                 "color": "Random color",
                 "weight": "Random weight",
@@ -22,7 +20,6 @@ class ProductSchema(BaseModel):
 
 
 class UpdateProduct(BaseModel):
-    product_id: Optional[str]
     name: str = Optional[str]
     color: str = Optional[str]
     weight: float = Optional[float]
@@ -31,7 +28,6 @@ class UpdateProduct(BaseModel):
     class Config:
         schema_example = {
             "example": {
-                "product_id": "77777777",
                 "name": "Some product",
                 "color": "Green",
                 "weight": "777",
