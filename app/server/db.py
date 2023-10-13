@@ -34,7 +34,7 @@ async def add_product(product_data: dict) -> dict:
 
 
 # Retrieve a student with a matching ID
-async def get_student(id: str) -> dict:
+async def get_product(id: str) -> dict:
     product = await products_collection.find_one({"_id": ObjectId(id)})
     if product:
         return product_helper(product)
