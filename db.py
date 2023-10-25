@@ -26,21 +26,18 @@ async def get_products():
     return products
 
 
-# Add a new student into to the database
 async def add_product(product_data: dict) -> dict:
     product = await products_collection.insert_one(product_data)
     new_product = await products_collection.find_one({"_id": product.inserted_id})
     return product_helper(new_product)
 
 
-# Retrieve a student with a matching ID
 async def get_product(id: str) -> dict:
     product = await products_collection.find_one({"_id": ObjectId(id)})
     if product:
         return product_helper(product)
 
 
-# Update a student with a matching ID
 async def update_product(id: str, data: dict):
     # Return false if an empty request body is sent.
     if len(data) < 1:
@@ -55,7 +52,6 @@ async def update_product(id: str, data: dict):
         return False
 
 
-# Delete a student from the database
 async def delete_product(id: str):
     product = await products_collection.find_one({"_id": ObjectId(id)})
     if product:
