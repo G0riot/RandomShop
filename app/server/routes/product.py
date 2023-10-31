@@ -1,14 +1,14 @@
 from fastapi import APIRouter, Body
 from fastapi.encoders import jsonable_encoder
 
-from db import (
+from server.db import (
     add_product,
     get_product,
     get_products,
     update_product,
     delete_product
 )
-from product_models import (
+from server.models.product import (
     response_model,
     ProductSchema,
     error_response_model,

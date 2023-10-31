@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from product_routes import router
+from server.routes.product import router
 
 app = FastAPI(title="Random Shop")
 
